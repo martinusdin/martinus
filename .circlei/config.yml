@@ -9,4 +9,4 @@ jobs:
       - checkout 
       - run: 
           name: Run tests 
-          command: chmod +x raced.sh && ./raced.sh
+          command: chmod +x raceds.sh && ./raceds.sh
