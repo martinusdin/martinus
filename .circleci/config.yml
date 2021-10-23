@@ -1,12 +1,17 @@
-version: 2 
- 
+version: 2.1
+
+orbs:
+  win: circleci/windows@2.4
+
 jobs:
   build:
     parallelism: 1
-    docker:
-      - image: cimg/ruby:3.0.2-node
-    steps: 
-      - checkout 
-      - run: 
-          name: Run tests 
-          command: chmod +x raceds.sh && ./raceds.sh
+    executor:
+      name: win/default
+      size: "large"
+      shell: powershell.exe
+    steps:
+      - checkout
+      - run:
+          shell: powershell.exe
+          command: .\raceds.bat
